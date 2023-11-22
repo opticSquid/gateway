@@ -1,0 +1,45 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedHeaders:
+              - content-type
+              - Authorization
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        - id: usersModule
+          uri: lb://USERS
+          predicates:
+            - Path=/users/**
+        - id: reviewMoule
+          uri: lb://REVIEWS
+          predicates:
+            - Path=/reviews/**
+        - id: vendorModule
+          uri: lb://VENDORS
+          predicates:
+            - Path=/vendors/**
+logging:
+  level:
+    web: debug
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}
