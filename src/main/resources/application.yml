@@ -27,7 +27,7 @@ spring:
           predicates:
             - Path=/reviews/**
         - id: vendorModule
-          uri: lb://VENDORS
+          uri: lb://vendor
           predicates:
             - Path=/vendors/**
 logging:
