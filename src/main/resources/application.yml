@@ -19,13 +19,13 @@ spring:
               - DELETE
       routes:
         - id: usersModule
-          uri: lb://USERS
+          uri: lb://user
           predicates:
             - Path=/users/**
-        - id: reviewMoule
-          uri: lb://REVIEWS
+        - id: contentMoule
+          uri: lb://content
           predicates:
-            - Path=/reviews/**
+            - Path=/contents/**
         - id: vendorModule
           uri: lb://vendor
           predicates:
