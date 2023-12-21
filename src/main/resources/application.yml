@@ -22,10 +22,10 @@ spring:
           uri: lb://user
           predicates:
             - Path=/users/**
-        - id: contentMoule
-          uri: lb://content
+        - id: postMoule
+          uri: lb://post
           predicates:
-            - Path=/contents/**
+            - Path=/posts/**
         - id: vendorModule
           uri: lb://vendor
           predicates:
