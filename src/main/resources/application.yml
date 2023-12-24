@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: gateway
+  output:
+    ansi:
+      enabled: ALWAYS
   cloud:
     gateway:
       globalcors:
