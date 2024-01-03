@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: gateway
+  profiles:
+    active: home
   output:
     ansi:
       enabled: ALWAYS
@@ -33,16 +35,16 @@ spring:
           uri: lb://vendor
           predicates:
             - Path=/vendors/**
+  loadbalancer:
+    ribbon:
+      enabled: false
 logging:
   level:
-    web: debug
+    web: info
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-  instance:
-    hostname: localhost
-    instance-id: ${eureka.instance.hostname}:${spring.application.name}
