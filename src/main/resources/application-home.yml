@@ -25,6 +25,6 @@ management:
             requests: true
 logging:
   level:
-    web: debug
+    web: info
   pattern:
     level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
