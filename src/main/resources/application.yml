@@ -23,11 +23,11 @@ spring:
               - PUT
               - DELETE
       routes:
-        - id: usersModule
-          uri: lb://user
+        - id: authModule
+          uri: lb://auth
           predicates:
-            - Path=/users/**
-        - id: postMoule
+            - Path=/auths/**
+        - id: postModule
           uri: lb://post
           predicates:
             - Path=/posts/**
