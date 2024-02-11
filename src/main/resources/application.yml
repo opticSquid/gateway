@@ -23,11 +23,11 @@ spring:
               - PUT
               - DELETE
       routes:
-        - id: usersModule
-          uri: lb://user
+        - id: authModule
+          uri: lb://auth
           predicates:
-            - Path=/users/**
-        - id: postMoule
+            - Path=/auths/**
+        - id: postModule
           uri: lb://post
           predicates:
             - Path=/posts/**
@@ -42,9 +42,10 @@ logging:
   level:
     web: info
 
-eureka:
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+
